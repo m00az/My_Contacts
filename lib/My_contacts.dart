@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'Socail_media_icon.dart';
+import 'ContactGrid.dart';
 
 class MyContacts extends StatelessWidget {
   MyContacts({super.key});
@@ -63,20 +62,7 @@ class MyContacts extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              GridView.builder(
-                itemCount: socialMediaIcons.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                itemBuilder: (context, index) {
-                  return SocialMedia(
-                    socialmedia: socialMediaIcons.keys.toList()[index],
-                    socialmediaLink: socialMediaIcons.values.toList()[index],
-                  );
-                },
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(12),
-              )
+              ContactsGrid(socialMediaIcons: socialMediaIcons)
             ],
           ),
         ),
